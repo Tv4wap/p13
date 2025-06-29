@@ -1,4 +1,3 @@
-
 <!DOCTYPE html> 
 <html lang="en">
 
@@ -80,10 +79,17 @@
     <div id="dplayer"></div>
 
     <script>
-        
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); 
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null; 
+        }
 
-        var urltext = '{{VAR(URL_QUERY)}}';
+        var urltext = getUrlParam('url');
         window.onload = () => {
+
+        
             new DPlayer({
                 container: document.getElementById('dplayer'),
                 autoplay: true,
@@ -107,6 +113,3 @@
     
 </body>
 </html>
-
-
-
