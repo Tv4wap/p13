@@ -104,31 +104,7 @@
                 logo: " "
             });
 
-            const tryAutoPlay = async () => {
-      const video = dp.video;
-      try {
-        video.muted = false;
-        video.volume = 0.8;
-        await video.play();
-      } catch {
-        try {
-          video.muted = true;
-          await video.play();
-          video.muted = false;
-        } catch {}
-      }
-    };
-
-    tryAutoPlay();
-
-    ['click', 'touchstart', 'keydown'].forEach(evt =>
-      document.addEventListener(evt, () => {
-        if (dp.video.muted) {
-          dp.video.muted = false;
-          dp.video.volume = 0.8;
-        }
-      }, { once: true })
-    );
+            
         }
     </script>
 
